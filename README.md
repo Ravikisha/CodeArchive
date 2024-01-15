@@ -6,9 +6,10 @@ Welcome to CodeArchive, your go-to repository for mastering Data Structures and 
 
 1. [Introduction](#introduction)
 2. [Why CodeArchive?](#why-codearchive)
-3. [How to Use CodeArchive](#how-to-use-codearchive)
-4. [Contributing](#contributing)
-5. [License](#license)
+3. [Top Platform](#top-platform)
+4. [How to Use CodeArchive](#how-to-use-codearchive)
+5. [Contributing](#contributing)
+6. [License](#license)
 
 ## Introduction
 
@@ -30,6 +31,17 @@ CodeArchive is a comprehensive collection of DSA problems to aid programmers at 
 
 ### 5. **Code Solutions:**
    Each problem comes with detailed solutions in popular programming languages. These solutions are not just code snippets; they include explanations and approaches to help you understand the logic behind the solution.
+
+## Top Platform
+These are the top platforms from which we have collected the questions.
+- [CodeChef](https://www.codechef.com/)
+- [Codeforces](https://codeforces.com/)
+- [HackerRank](https://www.hackerrank.com/)
+- [LeetCode](https://leetcode.com/)
+- [hackerearth](https://www.hackerearth.com/)
+- [InterviewBit](https://www.interviewbit.com/)
+- [GeeksforGeeks](https://www.geeksforgeeks.org/)
+- [AtCoder](https://atcoder.jp/)
 
 ## How to Use CodeArchive
 
