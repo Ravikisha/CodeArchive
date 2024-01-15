@@ -1,3 +1,5 @@
+![Poster](./Docs/CodeArchive.jpg)
+
 # CodeArchive
 
 Welcome to CodeArchive, your go-to repository for mastering Data Structures and Algorithms (DSA). This GitHub repository is designed to help you hone your programming skills through a curated collection of DSA questions sourced from popular platforms like HackerRank, CodeChef, LeetCode, and more.
