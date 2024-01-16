@@ -18,7 +18,18 @@ const int INF = INT_MAX;
 const ll LLINF = LLONG_MAX;
 
 void solve() {
-    // Your code goes here
+    int a, count =0;
+    cin >> a;
+    for (int i = 0; i < a; i++)
+    {
+        int n;
+        cin >> n;
+        if (n >= 1000){
+            count++;
+        }
+    }
+    cout << count << "\n";
+    
 }
 
 int main() {
