@@ -12,16 +12,30 @@ public:
     // whose sum is equal to the given value
     bool hasArrayTwoCandidates(int arr[], int n, int x)
     {
-        unordered_map<int, int> umap;
+        // unordered_map<int, int> umap;
+        // for (int i = 0; i < n; i++)
+        // {
+        //     if (umap[x - arr[i]])
+        //     {
+        //         return true;
+        //     }
+        //     else
+        //     {
+        //         umap[arr[i]] = 1;
+        //     }
+        // }
+        // return false;
+
+        unordered_set<int> uset;
         for (int i = 0; i < n; i++)
         {
-            if (umap[x - arr[i]])
+            if (uset.find(x - arr[i]) != uset.end())
             {
                 return true;
             }
             else
             {
-                umap[arr[i]] = 1;
+                uset.insert(arr[i]);
             }
         }
         return false;
