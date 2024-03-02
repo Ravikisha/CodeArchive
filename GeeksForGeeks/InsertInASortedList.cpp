@@ -52,7 +52,6 @@ public:
         {
             newNode->next = head;
             head = newNode;
-            return head;
         }
         else
         {
@@ -63,9 +62,8 @@ public:
             }
             newNode->next = temp->next;
             temp->next = newNode;
-            head = temp;
-            return head;
         }
+        return head;
     }
 };
 
