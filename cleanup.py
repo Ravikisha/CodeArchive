@@ -13,3 +13,5 @@ def cleanup(path):
             
 if __name__ == "__main__":
     cleanup(sys.argv[1] if len(sys.argv) > 1 else ".")
+    
+# Passing Github
