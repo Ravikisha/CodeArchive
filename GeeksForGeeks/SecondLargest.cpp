@@ -10,30 +10,22 @@ class Solution
 public:
     // Function returns the second
     // largest elements
-    int print2largest(int arr[], int n)
+    int print2largest(vector<int> &arr)
     {
-        int max = arr[0];
-        int second_max = INT_MIN;
-
-        for (int i = 1; i < n; i++)
+        int second = INT_MIN, first = arr[0];
+        for (int i = 1; i < arr.size(); i++)
         {
-            if (arr[i] >= max)
+            if (arr[i] > first)
             {
-                max = arr[i];
+                second = first;
+                first = arr[i];
+            }
+            if (arr[i] > second && arr[i] < first)
+            {
+                second = arr[i];
             }
         }
-
-        for (int i = 0; i < n; i++)
-        {
-            if (max > arr[i] && arr[i] >= second_max)
-            {
-                second_max = arr[i];
-            }
-        }
-
-        if (second_max == INT_MIN)
-            return -1;
-        return second_max;
+        return second == INT_MIN ? -1 : second;
     }
 };
 
@@ -43,18 +35,21 @@ int main()
 {
     int t;
     cin >> t;
+    cin.ignore();
     while (t--)
     {
-        int n;
-        cin >> n;
-        int arr[n];
-        for (int i = 0; i < n; i++)
+        vector<int> arr;
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
+        int number;
+        while (ss >> number)
         {
-            cin >> arr[i];
+            arr.push_back(number);
         }
         Solution ob;
-        auto ans = ob.print2largest(arr, n);
-        cout << ans << "\n";
+        int ans = ob.print2largest(arr);
+        cout << ans << endl;
     }
     return 0;
 }
