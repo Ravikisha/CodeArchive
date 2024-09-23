@@ -1,9 +1,5 @@
 class Solution {
 public:
-    Solution(){
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
-    }
     int longestConsecutive(vector<int>& nums) {
         unordered_set<int> uset(nums.begin(), nums.end());
         int longest = 0;
