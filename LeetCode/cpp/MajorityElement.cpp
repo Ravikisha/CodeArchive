@@ -1,3 +1,4 @@
+// Hashing Solution
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
@@ -14,5 +15,26 @@ public:
         }
 
         return 0;
+    }
+};
+
+// Optimal Solution
+// Moore's Voting algorithm
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int count = 0;
+        int candidate = -1;
+        for(int i=0;i<nums.size();i++){
+            if(count == 0){
+                candidate = nums[i];
+                count = 1;
+            }else if(nums[i] == candidate){
+                count++;
+            }else{
+                count--;
+            }
+        }
+        return candidate;
     }
 };
