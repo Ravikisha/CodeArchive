@@ -1,4 +1,6 @@
 class Solution {
+    // Time Complexity: O(n+m)
+    // Space Complexity: O(n+m)
 public:
     Solution(){
         ios_base::sync_with_stdio(false); cin.tie(NULL);
