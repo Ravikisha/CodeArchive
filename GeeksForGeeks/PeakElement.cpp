@@ -10,6 +10,8 @@ using namespace std;
 // n: size of array
 class Solution
 {
+	// Time Complexity: O(log(n))
+	// Space Complexity: O(1)
 public:
 	int peakElement(int arr[], int n)
 	{
