@@ -1,4 +1,5 @@
 class Solution {
+    // Time Complexity: O(m*n), Space Complexity: O(1)
 public:
     string firstPalindrome(vector<string>& words) {
         for(auto s : words){
