@@ -1,4 +1,6 @@
 class Solution {
+    // Time Complexity: O(n)
+    // Space Complexity: O(n)
 public:
     bool containsDuplicate(vector<int>& nums) {
         unordered_set<int> uset;
