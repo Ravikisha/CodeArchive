@@ -1,4 +1,6 @@
 class Solution {
+    // Time Complexity: O(logn)
+    // Space Complexity: O(1)
 public:
     int searchInsert(vector<int>& nums, int target) {
         int n = nums.size();
