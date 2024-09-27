@@ -43,3 +43,12 @@ public:
         return maxLength;
     }
 };
+/*
+Explaination:
+1. We will use a hash map to store the last index of each character.
+2. We will use two pointers, start and i, to keep track of the current window.
+3. If the character is already in the map and is in the current window, we will move the start pointer after the duplicate.
+4. We will update the index of the current character in the map.
+5. We will update the maximum length.
+6. Finally, we will return the maximum length.
+*/
