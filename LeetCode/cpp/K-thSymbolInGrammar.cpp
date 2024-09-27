@@ -48,7 +48,7 @@ Steps:
 2. Left is 0 and right is 2^(n-1). {2^(n-1) is the number of nodes in the binary tree at level n}
 3. We iterate from level 1 to n-1.
 4. At each level, we calculate the mid of the range and check if k is less than or equal to mid.
-5. If k is less than or equal to mid, we update right to mid.
-6. If k is greater than mid, we update left to mid+1 and toggle the current value of cur.
-7. Finally, we return the value of cur.
+5. If k is less than or equal to mid, we update right to mid and there is nothing to udpate in the current string cause the first half of the string is the same as the original string.
+6. If k is greater than mid, we update left to mid+1 and update the current string to the complement of the original string.
+7. Finally, we return the current string.
 */
