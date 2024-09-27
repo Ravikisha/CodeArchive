@@ -1,5 +1,7 @@
 class Solution
 {
+    // Time Complexity: O(nlogn)
+    // Space Complexity: O(1)
 public:
     int numRescueBoats(vector<int> &people, int limit)
     {
@@ -8,7 +10,7 @@ public:
         std::sort(people.begin(), people.end());
         int start = 0;
         int end = people.size() - 1;
-        while (start < end)
+        while (start <= end)
         {
             ans++;
             if (people[start] + people[end] <= limit)
