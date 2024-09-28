@@ -20,3 +20,33 @@ public:
         return ans;
     }
 };
+
+// Optimal Solution
+class Solution
+{
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
+public:
+    int equalSubstring(string s, string t, int maxCost)
+    {
+        int n = s.size();
+        int ans = 0, costSum = 0, left = 0;
+
+        for (int right = 0; right < n; ++right)
+        {
+            costSum += abs(s[right] - t[right]);
+
+            // Shrink the window if the cost exceeds maxCost
+            while (costSum > maxCost)
+            {
+                costSum -= abs(s[left] - t[left]);
+                ++left;
+            }
+
+            // Update the maximum length of the valid window
+            ans = max(ans, right - left + 1);
+        }
+
+        return ans;
+    }
+};
