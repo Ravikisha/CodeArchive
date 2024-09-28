@@ -8,7 +8,7 @@ public:
         long long low = 1, high = num;
         while (low <= high)
         {
-            long long mid = (low + high) >> 1;
+            long long mid = (low + high) >> 1; // mid = (low + high) / 2
             if (mid * mid == num)
             {
                 return true;
