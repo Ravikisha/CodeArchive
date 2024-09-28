@@ -1,5 +1,7 @@
 class Solution
 {
+    // Time Complexity: O(n)
+    // Space Complexity: O(m) where m is the number of unique elements in the array
 public:
     int maxSubarrayLength(vector<int> &nums, int k)
     {
