@@ -5,6 +5,8 @@ using namespace std;
 // } Driver Code Ends
 class Solution
 {
+    // Time Complexity: O(logn)
+    // Space Complexity: O(1) or O(logn) if we consider the recursive stack space
 public:
     // Function to find floor of x
     // n: size of vector
@@ -77,8 +79,8 @@ int main()
 // } Driver Code Ends
 
 
-/*
-Alternative Solution (Iteratively):
+
+// Alternative Solution (Iteratively):
 
 
 //{ Driver Code Starts
@@ -88,6 +90,8 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
+    // Time Complexity: O(logn)
+    // Space Complexity: O(1)
   public:
     // Function to find floor of x
     // n: size of vector
@@ -141,4 +145,3 @@ int main() {
     return 0;
 }
 // } Driver Code Ends
-*/
