@@ -6,6 +6,8 @@ using namespace std;
 // } Driver Code Ends
 //User function template for C++
 class Solution{
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
 public:	
 	
 	int shortestDistance(vector<string> &s, string word1, string word2)
