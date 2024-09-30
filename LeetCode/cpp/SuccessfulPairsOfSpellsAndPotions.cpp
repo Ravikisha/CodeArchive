@@ -1,6 +1,6 @@
 class Solution
 {
-    // Time Complexity: O(mlogn)
+    // Time Complexity:  O(n log n + m log n)
     // Space Complexity: O(1)
 public:
     vector<int> successfulPairs(vector<int> &spells, vector<int> &potions, long long success)
