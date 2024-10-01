@@ -8,35 +8,41 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution
-{
+class Solution {
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
 public:
-    ListNode *mergeInBetween(ListNode *list1, int a, int b, ListNode *list2)
-    {
-        ListNode *head = NULL;
-        ListNode *last = NULL;
-        int i = 1;
-        ListNode *t = list1;
-        while (t != NULL)
-        {
-            if (i == a)
-            {
-                head = t;
+    ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
+        ListNode* prevA = nullptr;  // Node just before the 'a' position
+        ListNode* afterB = nullptr; // Node just after the 'b' position
+        
+        ListNode* current = list1;
+        int i = 0;
+
+        // Find the node before position 'a' and the node after position 'b'
+        while (current) {
+            if (i == a - 1) {
+                prevA = current;
             }
-            if (i == b + 1)
-            {
-                last = t->next;
+            if (i == b + 1) {
+                afterB = current;
                 break;
             }
-            t = t->next;
+            current = current->next;
             i++;
         }
-        head->next = list2;
-        while (head->next != NULL)
-        {
-            head = head->next;
+
+        // Connect prevA's next to the head of list2
+        prevA->next = list2;
+
+        // Traverse to the end of list2
+        while (list2->next) {
+            list2 = list2->next;
         }
-        head->next = last;
+
+        // Connect the end of list2 to afterB
+        list2->next = afterB;
+
         return list1;
     }
 };
