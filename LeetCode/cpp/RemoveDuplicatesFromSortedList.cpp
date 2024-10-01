@@ -9,6 +9,8 @@
  * };
  */
 class Solution {
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
 public:
     ListNode* deleteDuplicates(ListNode* head) {
         if(head == NULL || head->next == NULL) return head;

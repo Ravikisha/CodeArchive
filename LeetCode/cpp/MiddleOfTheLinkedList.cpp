@@ -10,6 +10,8 @@
  */
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 class Solution {
+    // Time Complexity: O(n) => O(n/2) => O(n)
+    // Space Complexity: O(1)
 public:
     Solution(){
         fastio;
