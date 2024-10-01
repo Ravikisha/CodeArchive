@@ -27,3 +27,14 @@ public:
         return false;  
     }
 };
+
+/*
+Explanation:
+1. If nums[low] < nums[mid], then the left half must be sorted.
+    a. If nums[low] <= target < nums[mid], then the target must be in the left half.
+    b. Otherwise, the target must be in the right half.
+2. If nums[low] > nums[mid], then the right half must be sorted.
+    a. If nums[mid] < target <= nums[high], then the target must be in the right half.
+    b. Otherwise, the target must be in the left half.
+3. If nums[low] == nums[mid], then we can't decide which half is sorted, so we just move low to the next element.
+*/
