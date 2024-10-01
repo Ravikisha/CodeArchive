@@ -7,6 +7,8 @@ using namespace std;
 // User function template for C++
 class Solution
 {
+    // Time Complexity: O(log(n))
+    // Space Complexity: O(1)
 public:
     int findKRotation(vector<int> &arr)
     {
@@ -77,6 +79,8 @@ using namespace std;
 // User function template for C++
 class Solution
 {
+    // Time Complexity: O(log(n))
+    // Space Complexity: O(1)
 public:
     int findKRotation(vector<int> &arr)
     {

@@ -9,6 +9,8 @@
  * };
  */
 class Solution {
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
 public:
     ListNode* reverseList(ListNode* head) {
         ListNode* current = head;
