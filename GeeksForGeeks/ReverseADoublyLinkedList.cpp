@@ -4,145 +4,129 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
-{
+// a node of the doubly linked list
+class DLLNode {
+  public:
     int data;
-    Node *next;
-    Node *prev;
-    Node(int x)
-    {
-        data = x;
-        next = NULL;
-        prev = NULL;
+    DLLNode *next;
+    DLLNode *prev;
+
+    DLLNode(int val) {
+        data = val;
+        this->next = NULL;
+        this->prev = NULL;
     }
 };
 
-Node *newNode(int data)
-{
-    Node *temp = new Node(data);
+// Function to insert a node at the end
+// of the Doubly Linked List
+void push(DLLNode **tailRef, int new_data) {
+    // allocate node
+    DLLNode *newNode = new DLLNode(new_data);
 
-    return temp;
+    // since we are adding at the end,
+    // next is NULL
+    newNode->next = NULL;
+
+    newNode->prev = (*tailRef);
+
+    // change next of tail node to new node
+    if ((*tailRef) != NULL)
+        (*tailRef)->next = newNode;
+
+    (*tailRef) = newNode;
 }
 
-void displayList(Node *head)
-{
-    // Head to Tail
-    while (head->next)
-    {
+// Function to print nodes in a given doubly linked list
+void printList(DLLNode *head) {
+    // if list is empty
+    if (head == NULL)
+        return;
+
+    while (head != NULL) {
         cout << head->data << " ";
         head = head->next;
     }
-    cout << head->data;
 }
 
-int getLength(Node *head)
-{
-    Node *temp = head;
-
-    int count = 0;
-    while (temp->next != head)
-    {
-        count++;
-        temp = temp->next;
-    }
-    return count + 1;
-}
-
-bool verify(Node *head)
-{
-    int fl = 0;
-    int bl = 0;
-
-    Node *temp = head;
-
-    while (temp->next)
-    {
-        temp = temp->next;
-        fl++;
-    }
-
-    while (temp->prev)
-    {
-        temp = temp->prev;
-        bl++;
-    }
-
-    return fl == bl;
-}
 
 // } Driver Code Ends
 /*
-struct Node
-{
+class DLLNode {
+  public:
     int data;
-    Node * next;
-    Node * prev;
-    Node (int x)
-    {
-        data=x;
-        next=NULL;
-        prev=NULL;
-    }
+    DLLNode *next;
+    DLLNode *prev;
 
+    DLLNode(int val) {
+        data = val;
+        this->next = NULL;
+        this->prev = NULL;
+    }
 };
 */
-class Solution
-{
-public:
-    Node *reverseDLL(Node *head)
-    {
-        Node *current = head;
-        Node *temp = NULL;
-
-        while (current != NULL)
-        {
+class Solution {
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
+  public:
+    // Function to reverse a doubly linked list
+    DLLNode* reverseDLL(DLLNode* head) {
+        DLLNode* temp = nullptr;
+        DLLNode* current = head;
+    
+        // Swap next and prev for all nodes of the doubly linked list
+        while (current != nullptr) {
+            // Swap next and prev pointers
             temp = current->prev;
             current->prev = current->next;
             current->next = temp;
+    
+            // Move to the next node (which is the previous node before swapping)
             current = current->prev;
         }
-
-        if (temp != NULL)
-        {
+    
+        // Check if the list is not empty
+        if (temp != nullptr) {
+            // The new head will be the last node of the original list
             head = temp->prev;
         }
+    
         return head;
     }
 };
 
+
 //{ Driver Code Starts.
 
-int main()
-{
+// Driver code
+int main() {
     int t;
     cin >> t;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        Node *head = NULL, *tail = NULL;
-        int x;
-        cin >> x;
-        head = newNode(x);
-        tail = head;
+    cin.ignore();
+    while (t--) {
+        vector<int> arr;
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
+        int number;
 
-        for (int i = 0; i < n - 1; i++)
-        {
-            cin >> x;
-            Node *temp = newNode(x);
-            tail->next = temp;
-            temp->prev = tail;
-            tail = temp;
+        // Read numbers from the input line
+        while (ss >> number) {
+            arr.push_back(number);
+        }
+
+        DLLNode *head = new DLLNode(arr[0]);
+        DLLNode *tail = head;
+
+        // Check if the array is empty
+        for (size_t i = 1; i < arr.size(); ++i) {
+            push(&tail, arr[i]);
         }
         Solution ob;
         head = ob.reverseDLL(head);
 
-        if (verify(head))
-            displayList(head);
-        else
-            cout << "Your pointers are not correctly connected";
-
-        cout << endl;
+        printList(head);
+        cout << "\n";
     }
     return 0;
 }
