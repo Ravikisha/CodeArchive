@@ -1,4 +1,6 @@
 class Solution {
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
 public:
     int findDuplicate(vector<int>& nums) {
         int fast = nums[0];
