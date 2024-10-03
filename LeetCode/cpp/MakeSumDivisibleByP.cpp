@@ -1,47 +1,30 @@
-// Prefix Sum + Hash Table
-class Solution
-{
-    // Time Complexity: O(n)
-    // Space Complexity: O(n)
+// Prefix Sum + Hash Map
+class Solution {
 public:
-    int minSubarray(vector<int> &nums, int p)
-    {
-        // Find the total sum of the array
-        int total = reduce(nums.begin(), nums.end(), 0);
-        // Find the remainder of the total sum divided by p
-        int remain = total % p;
-        // If the remainder is 0, return 0
-        if (remain == 0)
-            return 0;
-        // Initialize the result to the size of the array
-        int res = nums.size();
-        // Initialize the current sum to 0
-        int cur_sum = 0;
-
-        // Create a hash table to store the prefix sum
-        unordered_map<int, int> umap;
-        // Initialize the prefix sum to -1
-        umap[0] = -1;
-        // Traverse the array
-        for (int i = 0; i < nums.size(); i++)
-        {
-            // Calculate the current sum
-            cur_sum = (cur_sum + nums[i]) % p;
-            // Calculate the prefix sum
-            int prefix = (cur_sum - remain + p) % p;
-            // If the prefix sum is in the hash table
-            if (umap[prefix])
-            {
-                // Calculate the length of the subarray
-                int length = i - umap[prefix];
-                // Update the result
-                res = min(res, length);
+    int minSubarray(vector<int>& nums, int p) {
+        int n = nums.size();
+        // Calculate the total sum of the array
+        int k = accumulate(nums.begin(), nums.end(), 0LL) % p;
+        
+        // If the total sum is divisible by p, return 0
+        if(k == 0) return 0;
+        
+        // If the total sum is less than p, return -1
+        unordered_map<int, int> lastidx;
+        int ans = n;
+        int runsum = 0;
+        
+        lastidx[0] = -1;
+        // Calculate the prefix sum of the array
+        for(int i = 0; i < n; ++i){
+            runsum = (runsum+nums[i])%p;
+            if(lastidx.count((runsum-k+p)%p)){
+                ans = min(ans, i - lastidx[(runsum-k+p)%p]);
             }
-            // Update the hash table
-            umap[cur_sum] = i;
+            lastidx[runsum] = i;
         }
-        // If the result is equal to the size of the array, return -1
-        return res == nums.size() ? -1 : res;
+        
+        return (ans == n) ? -1 : ans;
     }
 };
 
