@@ -7,11 +7,27 @@ using namespace std;
 // x: element to find square root
 class Solution
 {
+    // Time Complexity: O(log(n))
+    // Space Complexity: O(1)
 public:
-    long long int floorSqrt(long long int x)
+    long long int floorSqrt(long long int n)
     {
-        long long int sqr = sqrt(x);
-        long long int result = (long long int)(sqr);
+        long long int low = 0;
+        long long int high = n;
+        long long int result = 0;
+        while (low <= high)
+        {
+            long long int mid = low + (high - low) / 2;
+            if (mid * mid <= n)
+            {
+                result = mid;
+                low = mid + 1;
+            }
+            else
+            {
+                high = mid - 1;
+            }
+        }
         return result;
     }
 };
