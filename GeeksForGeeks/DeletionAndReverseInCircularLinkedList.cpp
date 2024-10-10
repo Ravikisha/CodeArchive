@@ -39,6 +39,8 @@ class Solution
 {
 public:
     // Function to reverse a circular linked list
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     Node *reverse(Node *head)
     {
         if (head == nullptr)
@@ -63,6 +65,8 @@ public:
     }
 
     // Function to delete a node from the circular linked list
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     Node *deleteNode(Node *head, int key)
     {
         Node *temp = head->next, *prev = head;
