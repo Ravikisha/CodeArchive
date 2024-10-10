@@ -43,6 +43,8 @@ struct Node
 
 class Solution
 {
+    // Time Coplexity: O(n)
+    // Space Complexity: O(1)
 public:
     // Should return head of the modified linked list
     Node *sortedInsert(struct Node *head, int data)
