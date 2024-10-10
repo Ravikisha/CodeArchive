@@ -40,3 +40,13 @@ public:
         return curr;
     }
 };
+
+/*
+Explanation:
+1. Find the length of the linked list and make it circular.
+2. Find the new tail and the new head.
+3. Break the circular list and return the new head.
+
+
+
+*/
