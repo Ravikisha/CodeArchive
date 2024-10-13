@@ -35,10 +35,8 @@ Example 1:
 nums = [2, 3, -2, 4]
 Output: 6
 
-Step 1: _max = 2, _min = 2, ans = 2
-Step 2: _max = 3, _min = 2, ans = 3
-Step 3: _max = -2, _min = 6, ans = 6
-Step 4: _max = 4, _min = -12, ans = 6
-
-
+Step 1: nums[0] = 2, _max = 2, _min = 2, ans = 2
+Step 2: nums[1] = 3, _max = 6, _min = 3, ans = 6
+Step 3: nums[2] = -2, _max = -2, min = -12, ans = 6
+Step 4: nums[3] = 4, _max = 4, _min = -48, ans = 6
 */
