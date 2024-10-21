@@ -23,7 +23,7 @@ public:
     }
 };
 
-// Iterative Solution
+// Iterative Solution BFS
 class Solution
 {
     // Time Complexity: O(n)
@@ -56,5 +56,31 @@ public:
         }
 
         return level;
+    }
+};
+
+// Iterative Solution DFS
+class Solution
+{
+    // Time Complexity: O(n)
+    // Space Complexity: O(n)
+public:
+    int maxDepth(TreeNode *root)
+    {
+        int res = 0;
+        stack<pair<TreeNode *, int>> st;
+        st.push(make_pair(root, 1));
+        while (!st.empty())
+        {
+            pair<TreeNode *, int> temp = st.top();
+            st.pop();
+            if (temp.first)
+            {
+                res = max(res, temp.second);
+                st.push(make_pair(temp.first->left, temp.second + 1));
+                st.push(make_pair(temp.first->right, temp.second + 1));
+            }
+        }
+        return res;
     }
 };
