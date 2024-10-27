@@ -71,3 +71,50 @@ public:
         return 0;
     }
 };
+
+/*
+Explanation:
+1. Count the frequency of each number.
+2. Store the frequency of each number in a vector.
+3. Sort the vector.
+4. Subtract the frequency of each number from k.
+5. If k becomes negative, return the number of unique integers left.
+6. If k becomes zero, return 0.
+7. If k is still positive, return 0.
+*/
+
+// More Speed
+class Solution
+{
+    // Time Complexity: O(nlogn)
+    // Space Complexity: O(n)
+public:
+    int findLeastNumOfUniqueInts(vector<int> &arr, int k)
+    {
+        unordered_map<int, int> cnt;
+        for (const int &x : arr)
+        {
+            ++cnt[x];
+        }
+
+        // Min-heap to store frequencies
+        priority_queue<int, vector<int>, greater<int>> minHeap;
+        for (const auto &[_, c] : cnt)
+        {
+            minHeap.push(c);
+        }
+
+        // Remove elements with the smallest frequencies
+        while (!minHeap.empty() && k > 0)
+        {
+            k -= minHeap.top();
+            if (k >= 0)
+            {
+                minHeap.pop();
+            }
+        }
+
+        // The remaining elements in the heap are the unique elements left
+        return minHeap.size();
+    }
+};
