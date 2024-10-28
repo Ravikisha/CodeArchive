@@ -8,7 +8,7 @@ public:
         vector<vector<int>> ans;
         vector<int> subset;
 
-        function<void(int, int)> dfs = [&](int i, int target)
+        function<void(int, int)> backtrack = [&](int i, int target)
         {
             if (i == candidates.size())
             {
@@ -22,13 +22,13 @@ public:
             {
                 // decide whether to choose candidates[i]
                 subset.push_back(candidates[i]);
-                dfs(i, target - candidates[i]);
+                backtrack(i, target - candidates[i]);
                 subset.pop_back();
             }
             // decide whether not to choose candidates[i]
-            dfs(i + 1, target);
+            backtrack(i + 1, target);
         };
-        dfs(0, target);
+        backtrack(0, target);
         return ans;
     }
 };
