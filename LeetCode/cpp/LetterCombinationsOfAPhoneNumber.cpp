@@ -1,7 +1,7 @@
 class Solution
 {
     // Time Complexity: O(4^n)
-    // Space Complexity: O(n)
+    // Space Complexity: O(n*4^n)
 public:
     vector<string> letterCombinations(string digits)
     {
