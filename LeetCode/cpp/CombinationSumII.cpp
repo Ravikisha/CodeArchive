@@ -1,7 +1,7 @@
 class Solution
 {
     // Time Complexity: O(nlogn+2^n)
-    // Space Complexity: O(O(2^n*n))
+    // Space Complexity: O(2^n*n)
 public:
     vector<vector<int>> combinationSum2(vector<int> &candidates, int target)
     {
