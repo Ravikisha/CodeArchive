@@ -43,8 +43,10 @@ public:
                 ans.push_back(subset);
                 return;
             }
+            // decide whether to choose nums[i]
             subset.push_back(nums[i]);
             dfs(i + 1);
+            // decide whether not to choose nums[i]
             subset.pop_back();
             dfs(i + 1);
         };
