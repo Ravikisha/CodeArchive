@@ -10,6 +10,7 @@
         "regex": "cpp",
         "utility": "cpp",
         "valarray": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "cmath": "cpp"
     }
 }
