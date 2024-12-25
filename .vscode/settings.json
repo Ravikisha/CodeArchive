@@ -11,6 +11,7 @@
         "utility": "cpp",
         "valarray": "cpp",
         "vector": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "deque": "cpp"
     }
 }
