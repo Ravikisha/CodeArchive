@@ -12,6 +12,9 @@
         "valarray": "cpp",
         "vector": "cpp",
         "cmath": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
     }
 }

@@ -1,21 +1,19 @@
-//{ Driver Code Starts
-#include <bits/stdc++.h>
-using namespace std;
-
-// } Driver Code Ends
 class Solution
 {
     // Time Complexity: O(n * m)
     // Space Complexity: O(min(n, m))
     // Bottom-up Dynamic Programming (Tabulation)
     // Space Optimized
+    // Solution Dervied from LongestCommonSubsequence.cpp
 public:
-    int longestCommonSubstr(string &s1, string &s2)
+    int longestPalindromeSubseq(string s)
     {
-        int n = s1.size();
-        int m = s2.size();
+        string text1 = s;
+        reverse(s.begin(), s.end());
+        string text2 = s;
+        int n = text1.size();
+        int m = text2.size();
         vector<int> dp(m + 1, 0);
-        int count = 0;
         for (int i = 1; i <= n; i++)
         {
             int prev = 0; // Store dp[j - 1] from the previous row
@@ -23,37 +21,13 @@ public:
             {
                 int temp = dp[j]; // Temporarily store the current dp[j] before
                                   // updating
-                if (s1[i - 1] == s2[j - 1])
-                {
+                if (text1[i - 1] == text2[j - 1])
                     dp[j] = 1 + prev; // Use prev instead of dp[j - 1]
-                    count = max(count, dp[j]);
-                }
                 else
-                    dp[j] = 0;
+                    dp[j] = max(dp[j], dp[j - 1]);
                 prev = temp; // Update prev for the next iteration
             }
         }
-        return count;
+        return dp[m];
     }
 };
-
-//{ Driver Code Starts.
-
-int main()
-{
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        string s1, s2;
-        cin >> s1 >> s2;
-        Solution ob;
-
-        cout << ob.longestCommonSubstr(s1, s2) << endl;
-
-        cout << "~"
-             << "\n";
-    }
-}
-
-// } Driver Code Ends
