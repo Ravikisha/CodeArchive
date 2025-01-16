@@ -68,7 +68,7 @@ public:
             // if all the characters in s1 are present in s2, then return true
             if (matches == 26)
                 return true;
-            
+
             int index = s2[r] - 'a';
             // increment the count of the character in s2
             s2Count[index]++;
@@ -90,5 +90,53 @@ public:
             left++;
         }
         return matches == 26;
+    }
+};
+
+class Solution
+{
+public:
+    bool checkInclusion(string s1, string s2)
+    {
+        int n = s1.size();
+        int m = s2.size();
+
+        if (n > m)
+            return false;
+
+        unordered_map<char, int> s1Counter;
+        unordered_map<char, int> s2Counter;
+        int result = false;
+
+        // counting the occurance of the s1
+        for (int i = 0; i < n; i++)
+        {
+            s1Counter[s1[i]]++;
+        }
+
+        // counting the first window occurance
+        for (int i = 0; i < n; i++)
+        {
+            s2Counter[s2[i]]++;
+        }
+        if (s1Counter == s2Counter)
+            return true;
+        int l = n, r = n;
+        for (int i = n; i < m; i++)
+        {
+            s2Counter[s2[i]]++;
+
+            char leftChar = s2[i - n];
+            s2Counter[leftChar]--;
+            if (s2Counter[leftChar] == 0)
+            {
+                s2Counter.erase(leftChar);
+            }
+
+            if (s1Counter == s2Counter)
+                return true;
+        }
+
+        return false;
     }
 };
